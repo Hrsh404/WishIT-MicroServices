@@ -18,8 +18,9 @@ public class RegistrationService {
 
 	    public Registration registerUser(Registration user) {
 	      
-	    	if (repository.findByEmail(user.getEmail()).isPresent()) {
+	    	if (repository.findByEmailAndPassword(user.getEmail(), user.getPassword()).isPresent()) {
 	    	    throw new RuntimeException("Email already in use");
+	    	    
 	    	}
 
 	        return repository.save(user);

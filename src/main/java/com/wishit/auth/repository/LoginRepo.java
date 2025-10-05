@@ -4,8 +4,10 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import com.wishit.auth.entity.Login;
 import com.wishit.auth.entity.Registration;
 
-public interface RegistrationRepo extends JpaRepository<Registration, Long> {
-	  Optional<Registration> findByEmailAndPassword(String email, String password);
+public interface LoginRepo extends JpaRepository<Login,Long>{
+	
+	 Optional<Login> findByEmail(String email);
 }
