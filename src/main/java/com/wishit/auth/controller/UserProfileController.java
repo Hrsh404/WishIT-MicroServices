@@ -11,13 +11,13 @@ import com.wishit.auth.dto.ProfileDTO;
 import com.wishit.auth.service.UserProfileService;
 
 @RestController
-@RequestMapping("/user/profile")
+@RequestMapping("/user/{userId}/profile")
 public class UserProfileController {
 
     @Autowired
     private UserProfileService profileService;
 
-    @GetMapping("/{userId}")
+    @GetMapping("/view")
     public ResponseEntity<?> getProfile(@PathVariable Long userId) {
         try {
             ProfileDTO profileDTO = profileService.getUserProfile(userId);

@@ -1,44 +1,47 @@
+package com.wishit.auth.entity;
 
-	package com.wishit.auth.entity;
-	import jakarta.persistence.*;
+import java.sql.Timestamp;
+import org.hibernate.annotations.CreationTimestamp;
+import jakarta.persistence.*;
 
-	@Entity
-	@Table(name = "users")
-	public class Registration {
+@Entity
+@Table(name = "users")
+public class Registration {
 
-	    @Id
-	    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	    private Long id;
-	    @Column(nullable=false)
-	    private String name;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column(nullable=false)
+    private String name;
 
-	    @Column(nullable= false,unique = true)
-	    private String email;
-	    @Column(nullable=false)
-	    private String password;
+    @Column(nullable= false,unique = true)
+    private String email;
+    @Column(nullable=false)
+    private String password;
 
-	 
-	    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
-	    private UserProfile profile;
-	    
-	    
-	    
-	    public Long getId() { return id; }
-	    public void setId(Long id) { this.id = id; }
+    @CreationTimestamp
+	private Timestamp joinedOn;
+ 
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    private UserProfile profile;
+    
+    
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
-	    public String getName() { return name; }
-	    public void setName(String name) { this.name = name; }
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
 
-	    public String getEmail() { return email; }
-	    public void setEmail(String email) { this.email = email; }
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
 
-	    public String getPassword() { return password; }
-	    public void setPassword(String password) { this.password = password; }
-
-	    
-	    
-	    
-	}
+    public String getPassword() { return password; }
+    public void setPassword(String password) { this.password = password; }
+    
+	public Timestamp getJoinedOn() { return joinedOn; }
+	public void setJoinedOn(Timestamp joinedOn) { this.joinedOn = joinedOn; }
+   
+}
 
 	
 	

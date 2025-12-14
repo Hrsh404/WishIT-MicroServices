@@ -1,6 +1,5 @@
 package com.wishit.auth.entity;
 
-import java.util.Date;
 import jakarta.persistence.*;
 
 @Entity
@@ -8,17 +7,17 @@ public class UserProfile {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long profileID;
-	
+	private Integer age;
 	private String firstName;
+	private String middleName;
 	private String lastName;
 	private String email;
 	private String profilePic;
-	private Date joinedOn;
 	private Long mobileNo;
-	private Long AlternativeMobNo;
-	private String address;
+	private Long alternativeMobNo;
 	private String gender;
-	private String prefferedLang;
+	private String city;
+
 	
 	@OneToOne
 	@JoinColumn(name = "userid")
@@ -63,13 +62,7 @@ public class UserProfile {
 	public void setProfilePic(String profilePic) {
 		this.profilePic = profilePic;
 	}
-	public Date getJoinedOn() {
-		return joinedOn;
-	}
-
-	public void setJoinedOn(Date joinedOn) {
-		this.joinedOn = joinedOn;
-	}
+	
 
 	public Long getMobileNo() {
 		return mobileNo;
@@ -80,19 +73,11 @@ public class UserProfile {
 	}
 
 	public Long getAlternativeMobNo() {
-		return AlternativeMobNo;
+		return alternativeMobNo;
 	}
 
 	public void setAlternativeMobNo(Long alternativeMobNo) {
-		AlternativeMobNo = alternativeMobNo;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
+		alternativeMobNo = alternativeMobNo;
 	}
 
 	public String getGender() {
@@ -103,14 +88,6 @@ public class UserProfile {
 		this.gender = gender;
 	}
 
-	public String getPrefferedLang() {
-		return prefferedLang;
-	}
-
-	public void setPrefferedLang(String prefferedLang) {
-		this.prefferedLang = prefferedLang;
-	}
-
 	public Registration getUser() {
 		return user;
 	}
@@ -118,4 +95,30 @@ public class UserProfile {
 	public void setUser(Registration user) {
 		this.user = user;
 	}
+
+	public Integer getAge() {
+		return age;
+	}
+
+	public void setAge(Integer age) {
+		this.age = age;
+	}
+
+	public String getMiddleName() {
+		return middleName;
+	}
+
+	public void setMiddleName(String middleName) {
+		this.middleName = middleName;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+	
+	
 }

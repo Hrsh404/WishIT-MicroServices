@@ -1,8 +1,9 @@
-${Ansi.RED}
+
    ____ _            _       ___       
   / ___| | ___   ___| | __  |_ _|_ __  
  | |   | |/ _ \ / __| |/ /   | || '_ \ 
  | |___| | (_) | (__|   <    | || | | |
   \____|_|\___/ \___|_|\_\  |___|_| |_|
 
-             ${Ansi.GREEN}Clock-In ${Ansi.DEFAULT}
+${Ansi.YELLOW}       A U T H   S E R V I C E
+${Ansi.GREEN}            Clock-In ${Ansi.DEFAULT}
