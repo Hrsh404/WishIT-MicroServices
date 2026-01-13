@@ -7,5 +7,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.wishit.auth.entity.Registration;
 
 public interface RegistrationRepo extends JpaRepository<Registration, Long> {
+	Optional<Registration> findByUuid(String uuid);
 	  Optional<Registration> findByEmailAndPassword(String email, String password);
 }

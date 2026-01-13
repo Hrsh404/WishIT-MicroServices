@@ -1,6 +1,8 @@
 package com.wishit.auth.service;
 
 
+import java.util.UUID;
+
 import org.springframework.stereotype.Service;
 
 import com.wishit.auth.entity.Registration;
@@ -16,12 +18,18 @@ public class RegistrationService {
 	        this.repository = repository;
 	    }
 
+
 	    public Registration registerUser(Registration user) {
-	      
+
 	    	if (repository.findByEmailAndPassword(user.getEmail(), user.getPassword()).isPresent()) {
 	    	    throw new RuntimeException("Email already in use");
-	    	    
+
+
 	    	}
+
+
+	    	user.setUuid(UUID.randomUUID().toString());
+user.setRole("USER");
 
 	        return repository.save(user);
 	    }
